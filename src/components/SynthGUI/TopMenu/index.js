@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import { Brand } from "../TopMenu/brand";
+import { Controls } from "../TopMenu/controls";
+import { StackButton } from "../../Buttons/StackButton"
 
 const StyledTopMenu = styled.header`
   display: flexbox;
-  justify-items: space-between;
+  justify-content: space-between;
   align-items: center;
 
   height: 100%;
@@ -14,6 +16,12 @@ const StyledTopMenu = styled.header`
 
 export const TopMenu = () => {
   return (
-    <StyledTopMenu><Brand /></StyledTopMenu>
+    <StyledTopMenu>
+      <Brand />
+      <Controls>
+        <StackButton action="undo" />
+        <StackButton action="redo" />
+      </Controls>
+    </StyledTopMenu>
   )
 }

@@ -11,7 +11,7 @@ export default function App() {
 	window.onresize = () => setWindowWidth(window.innerWidth);
 
 	const enoughScreenSpace = () => {
-		return window.innerWidth >= 1080 ? <SynthGUI /> : <ScreenTooSmall />
+		return window.innerWidth >= 1000 ? <SynthGUI /> : <ScreenTooSmall />
 	}
 
 	return (
