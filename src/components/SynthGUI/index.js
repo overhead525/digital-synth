@@ -3,6 +3,8 @@ import { TopMenu } from "./TopMenu";
 import { OscillatorControls } from "./OscillatorControls";
 import { EffectControls } from "./EffectControls";
 import { BottomPianoRoll } from "./BottomPianoRoll";
+import { useContext } from "preact/hooks";
+import { SoundSelectionContext } from "../../contexts/SynthContexts";
 
 const StyledSynthGUI = styled.main`
   display: grid;
@@ -18,7 +20,7 @@ const StyledSynthGUI = styled.main`
 const SynthGUI = () => {
   return (
     <StyledSynthGUI className="guiWrapper">
-      <TopMenu />
+      <TopMenu soundSelection={useContext(SoundSelectionContext)} />
       <OscillatorControls />
       <EffectControls />
       <BottomPianoRoll />

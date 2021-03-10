@@ -5,6 +5,8 @@ import 'normalize.css'
 import SynthGUI from "./components/SynthGUI";
 import ScreenTooSmall from "./components/ScreenTooSmall";
 
+import { SoundSelectionContext } from "./contexts/SynthContexts";
+
 export default function App() {
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
@@ -16,7 +18,9 @@ export default function App() {
 
 	return (
 		<div>
+			<SoundSelectionContext.Provider value="sine">
 			{enoughScreenSpace()}
+			</SoundSelectionContext.Provider>
 		</div>
 	);
 }

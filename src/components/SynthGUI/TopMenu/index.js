@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Brand } from "../TopMenu/brand";
 import { Controls } from "../TopMenu/controls";
 import { StackButton } from "../../Buttons/StackButton"
+import { Selector } from './selector';
 
 const StyledTopMenu = styled.header`
   display: flexbox;
@@ -14,7 +15,7 @@ const StyledTopMenu = styled.header`
   background-color: #A2A6A1;
 `;
 
-export const TopMenu = () => {
+export const TopMenu = ({ soundSelection }) => {
   return (
     <StyledTopMenu>
       <Brand />
@@ -22,6 +23,7 @@ export const TopMenu = () => {
         <StackButton action="undo" />
         <StackButton action="redo" />
       </Controls>
+      <Selector text={soundSelection} />
     </StyledTopMenu>
   )
 }
