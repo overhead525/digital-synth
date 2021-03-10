@@ -22,8 +22,8 @@ export const TopMenu = ({ soundSelection }) => {
       <Controls>
         <StackButton action="undo" />
         <StackButton action="redo" />
+        <Selector text={soundSelection} />
       </Controls>
-      <Selector text={soundSelection} />
     </StyledTopMenu>
   )
 }
