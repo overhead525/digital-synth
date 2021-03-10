@@ -2,10 +2,13 @@ import styled from "styled-components";
 
 const StyledCF = styled.div`
   position: relative;
-  width: 3.2rem;
+  width: 4.5rem;
+  height: 1.76rem;
 `;
 
 const StyledStackButton = styled.img`
+  width: 4.5rem;
+
   position: absolute;
 
   -webkit-transition: opacity 0.25s ease-in-out;
