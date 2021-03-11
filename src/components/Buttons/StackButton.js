@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { topMenuLineHeight } from "../SynthGUI/TopMenu/_constants";
+
 const StyledCF = styled.div`
   position: relative;
   width: 4.5rem;

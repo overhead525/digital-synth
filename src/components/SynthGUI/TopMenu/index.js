@@ -3,6 +3,7 @@ import { Brand } from "../TopMenu/brand";
 import { Controls } from "../TopMenu/controls";
 import { StackButton } from "../../Buttons/StackButton"
 import { Selector } from './selector';
+import { SelectionDirectionalButton, SelectionDirectionalButtonGroup } from '../../Buttons/SelectionDirectionalButton';
 
 const StyledTopMenu = styled.header`
   display: flexbox;
@@ -23,6 +24,10 @@ export const TopMenu = ({ soundSelection }) => {
         <StackButton action="undo" />
         <StackButton action="redo" />
         <Selector text={soundSelection} />
+        <SelectionDirectionalButtonGroup>
+          <SelectionDirectionalButton direction="previous" />
+          <SelectionDirectionalButton direction="next" />
+        </SelectionDirectionalButtonGroup>
       </Controls>
     </StyledTopMenu>
   )
