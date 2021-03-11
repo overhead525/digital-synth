@@ -14,7 +14,7 @@ const StyledTopMenu = styled.header`
   height: 100%;
   width: 100%;
 
-  background-color: #A2A6A1;
+  background: linear-gradient(90deg, rgba(162,166,161,1) 0%, rgba(202,207,201,1) 44%, rgba(162,166,161,1) 100%);
 `;
 
 export const TopMenu = ({ soundSelection }) => {
