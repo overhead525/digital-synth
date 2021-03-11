@@ -6,6 +6,10 @@ const StyledCF = styled.div`
   position: relative;
   width: 4.5rem;
   height: 1.76rem;
+
+  &:active {
+    box-shadow: 0 0 7.5px #43D9D9;
+  }
 `;
 
 const StyledStackButton = styled.img`

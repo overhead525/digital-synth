@@ -13,6 +13,10 @@ const StyledCF = styled.div`
 
   width: ${topMenuLineHeight}rem;
   height: ${topMenuLineHeight}rem;
+
+  &:active {
+    box-shadow: 0 0 7.5px #43D9D9;
+  }
 `;
 
 const StyledCFWithMargin = styled(StyledCF)`
