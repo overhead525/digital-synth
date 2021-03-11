@@ -1,3 +1,10 @@
 import { createContext } from "preact";
 
-export const SoundSelectionContext = createContext('sine');
+export const soundChoices = [
+  'sine',
+  'square',
+  'sawtooth',
+  'triangle'
+]
+
+export const SoundSelectionContext = createContext(soundChoices[0]);
