@@ -4,6 +4,7 @@ import { Controls } from "../TopMenu/controls";
 import { StackButton } from "../../Buttons/StackButton"
 import { Selector } from './selector';
 import { SelectionDirectionalButton, SelectionDirectionalButtonGroup } from '../../Buttons/SelectionDirectionalButton';
+import { SaveButton } from "../../Buttons/SaveButton";
 
 const StyledTopMenu = styled.header`
   display: flexbox;
@@ -28,6 +29,7 @@ export const TopMenu = ({ soundSelection }) => {
           <SelectionDirectionalButton direction="previous" />
           <SelectionDirectionalButton direction="next" />
         </SelectionDirectionalButtonGroup>
+        <SaveButton />
       </Controls>
     </StyledTopMenu>
   )
