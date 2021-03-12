@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { OscillatorSelector } from "./oscillatorSelector";
 
 const StyledOscillatorWrapper = styled.div`
   display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr 1fr 2fr 1fr;
 
   height: 100%;
 `;
@@ -16,13 +17,20 @@ const StyledOscillatorRow = styled.div`
   align-items: center;
 `;
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.div`
   letter-spacing: 3px;
+  font-weight: 600;
 `;
 
-export const Oscillator1 = () => {
+export const Oscillators = () => {
   return (
     <StyledOscillatorWrapper>
+      <StyledOscillatorRow>
+        <StyledTitle>OSC1</StyledTitle>
+        <OscillatorSelector />
+      </StyledOscillatorRow>
+      <StyledOscillatorRow></StyledOscillatorRow>
+      <StyledOscillatorRow></StyledOscillatorRow>
       <StyledOscillatorRow>
         <StyledTitle>OSC1</StyledTitle>
       </StyledOscillatorRow>
