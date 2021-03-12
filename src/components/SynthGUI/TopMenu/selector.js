@@ -1,7 +1,6 @@
 import { useState } from "preact/hooks";
 import styled from "styled-components";
-
-import { soundChoices } from "../../../contexts/SynthContexts";
+import { useSelector } from "react-redux";
 
 const StyledSelectorContainer = styled.div`
   margin-left: 0.5rem;
@@ -38,6 +37,10 @@ const StyledSelectorListComponent = styled.div`
 
 export const Selector = ({ text }) => {
   const [isListOpen, setIsListOpen] = useState(false);
+  const soundChoices = useSelector(
+    // @ts-ignore
+    (state) => state.soundSelection.soundChoices
+  );
 
   if (isListOpen)
     window.addEventListener("click", (e) => {
