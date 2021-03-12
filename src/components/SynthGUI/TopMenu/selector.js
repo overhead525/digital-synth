@@ -1,6 +1,7 @@
 import { useState } from "preact/hooks";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { changeSoundChoice } from "../../../features/soundSelection/soundSelectionSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const StyledSelectorContainer = styled.div`
   margin-left: 0.5rem;
@@ -41,6 +42,7 @@ export const Selector = ({ text }) => {
     // @ts-ignore
     (state) => state.soundSelection.soundChoices
   );
+  const dispatch = useDispatch();
 
   if (isListOpen)
     window.addEventListener("click", (e) => {
@@ -51,7 +53,10 @@ export const Selector = ({ text }) => {
 
   const renderComponents = (arr = []) => {
     return arr.map((element) => (
-      <StyledSelectorListComponent id="selector">
+      <StyledSelectorListComponent
+        id="selector"
+        onClick={() => dispatch(changeSoundChoice(element))}
+      >
         {element}
       </StyledSelectorListComponent>
     ));
