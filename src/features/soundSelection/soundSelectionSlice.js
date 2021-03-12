@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const soundSelectionSlice = createSlice({
   name: "soundSelection",
   initialState: {
-    soundChoices: ["sine", "sawtooth", "square", "triangle"],
-    currentSoundChoice: "sine",
+    soundChoices: ["Vox Humana", "PPG Choir", "E. Piano 1", "Lately Bass"],
+    currentSoundChoice: "Vox Humana",
   },
   reducers: {
     changeSoundChoice: (state, action) => {
