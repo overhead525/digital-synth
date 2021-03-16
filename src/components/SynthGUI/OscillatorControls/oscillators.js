@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BasicKnob } from "../../Knobs/BasicKnob";
 import { OscillatorSelector } from "./oscillatorSelector";
 
 const StyledOscillatorWrapper = styled.div`
@@ -9,8 +10,8 @@ const StyledOscillatorWrapper = styled.div`
 `;
 
 const StyledOscillatorRow = styled.div`
-  background-color: blue;
-  border: 1px solid white;
+  background-color: white;
+  border: 1px solid blue;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -29,7 +30,12 @@ export const Oscillators = () => {
         <StyledTitle>OSC1</StyledTitle>
         <OscillatorSelector />
       </StyledOscillatorRow>
-      <StyledOscillatorRow></StyledOscillatorRow>
+      <StyledOscillatorRow>
+        <BasicKnob />
+        <BasicKnob />
+        <BasicKnob />
+        <BasicKnob />
+      </StyledOscillatorRow>
       <StyledOscillatorRow></StyledOscillatorRow>
       <StyledOscillatorRow>
         <StyledTitle>OSC2</StyledTitle>
