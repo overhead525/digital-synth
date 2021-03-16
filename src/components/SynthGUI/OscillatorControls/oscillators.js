@@ -12,9 +12,9 @@ const StyledOscillatorRow = styled.div`
   background-color: blue;
   border: 1px solid white;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
 `;
 
 const StyledTitle = styled.div`

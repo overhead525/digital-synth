@@ -8,9 +8,9 @@ const StyledOscillatorSelector = styled.div`
 
   position: relative;
 
-  width: 15rem;
+  grid-column: 2 / span 3;
 
-  padding: 0 1rem;
+  width: 100%;
 
   background-color: #a2a7a0;
 `;
