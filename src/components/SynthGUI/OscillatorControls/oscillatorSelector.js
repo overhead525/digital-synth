@@ -3,7 +3,7 @@ import { SelectionDirectionalButton } from "../../Buttons/SelectionDirectionalBu
 
 const StyledOscillatorSelector = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   position: relative;
@@ -22,7 +22,9 @@ const StyledText = styled.p`
 export const OscillatorSelector = ({ oscillator = "sine" }) => {
   return (
     <StyledOscillatorSelector>
+      <SelectionDirectionalButton direction="previous" special="pure" />
       <StyledText>{oscillator}</StyledText>
+      <SelectionDirectionalButton direction="next" special="pure" />
     </StyledOscillatorSelector>
   );
 };
