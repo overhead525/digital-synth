@@ -1,4 +1,5 @@
 import preact, { h } from "preact";
+import "preact/debug";
 import { useState } from "preact/hooks";
 import "./style";
 import "normalize.css";

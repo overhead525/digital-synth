@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 const StyledOscillatorSelector = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+  position: relative;
 
   width: 15rem;
 
@@ -12,28 +14,14 @@ const StyledOscillatorSelector = styled.div`
   background-color: #a2a7a0;
 `;
 
-const StyledArrowLeft = styled.div`
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0.75rem 1.3rem 0.75rem 0;
-  border-color: transparent #7b7d7b transparent transparent;
-`;
-
-const StyledArrowRight = styled.div`
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0.75rem 0 0.75rem 1.3rem;
-  border-color: transparent transparent transparent #7b7d7b;
+const StyledText = styled.p`
+  line-height: 20%;
 `;
 
 export const OscillatorSelector = ({ oscillator = "sine" }) => {
   return (
     <StyledOscillatorSelector>
-      <StyledArrowLeft />
-      <p>{oscillator}</p>
-      <StyledArrowRight />
+      <StyledText>{oscillator}</StyledText>
     </StyledOscillatorSelector>
   );
 };

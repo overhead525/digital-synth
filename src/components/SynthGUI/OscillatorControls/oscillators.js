@@ -32,7 +32,7 @@ export const Oscillators = () => {
       <StyledOscillatorRow></StyledOscillatorRow>
       <StyledOscillatorRow></StyledOscillatorRow>
       <StyledOscillatorRow>
-        <StyledTitle>OSC1</StyledTitle>
+        <StyledTitle>OSC2</StyledTitle>
       </StyledOscillatorRow>
       <StyledOscillatorRow></StyledOscillatorRow>
       <StyledOscillatorRow></StyledOscillatorRow>
