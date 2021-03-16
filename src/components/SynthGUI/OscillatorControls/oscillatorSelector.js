@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SelectionDirectionalButton } from "../../Buttons/SelectionDirectionalButton";
 
 const StyledOscillatorSelector = styled.div`
   display: flex;
