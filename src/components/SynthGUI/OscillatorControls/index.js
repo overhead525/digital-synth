@@ -22,19 +22,30 @@ const StyledContent = styled.div`
   max-height: 95%;
 `;
 
+const StyledContentColumn = styled.div`
+  margin: auto 0;
+
+  height: 94%;
+  max-height: 94%;
+`;
+
 export const OscillatorControls = () => {
   return (
     <StyledOscillatorControls>
       <StyledContent>
-        <div>
+        <StyledContentColumn>
           <Oscillators />
-        </div>
+        </StyledContentColumn>
         <div style={{ backgroundColor: "black" }}></div>
-        <div style={{ backgroundColor: "red" }}></div>
+        <StyledContentColumn
+          style={{ backgroundColor: "red" }}
+        ></StyledContentColumn>
         <div></div>
         <div style={{ backgroundColor: "green" }}></div>
         <div></div>
-        <div style={{ backgroundColor: "purple" }}></div>
+        <StyledContentColumn
+          style={{ backgroundColor: "purple" }}
+        ></StyledContentColumn>
       </StyledContent>
     </StyledOscillatorControls>
   );
