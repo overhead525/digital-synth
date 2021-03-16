@@ -5,18 +5,8 @@ const StyledBasicKnobWrapper = styled.div`
   position: relative;
   display: grid;
   place-items: center;
-`;
-
-const StyledKnobBed = styled.img`
-  width: 2.6rem;
-  z-index: 10;
-`;
-
-const StyledKnob = styled.img`
-  position: absolute;
-  z-index: 20;
-  width: 70%;
-  left: 0.6rem;
+  width: 3.5rem;
+  height: 3.5rem;
 `;
 
 const StyledKnobLabel = styled.div`
@@ -27,29 +17,42 @@ const StyledKnobLabel = styled.div`
 `;
 
 const StyledKnobGhost = styled.img`
-  margin-top: -0.5rem;
   position: absolute;
-  object-fit: cover;
-  blur: 4px;
-  opacity: 0.8;
-  z-index: 30;
+  width: 90%;
+  z-index: 20;
+  opacity: 0.7;
+  user-select: none;
+
+  &::after,
+  &::before {
+    user-select: none;
+  }
 `;
 
-const StyledGridDiv = styled.div`
-  position: relative;
-  display: grid;
-  place-items: center;
+const StyledKnobBed = styled.img`
+  position: absolute;
+  width: 90%;
+  z-index: 10;
 `;
 
 export const BasicKnob = ({ label = "Label" }) => {
+  const knob = document
+    .getElementById("knob-ghost")
+    .addEventListener("drag", (e) => {
+      e.preventDefault();
+    });
+
   return (
-    <StyledBasicKnobWrapper>
-      <StyledKnobGhost src="../../assets/ghost-blur.svg" />
-      <StyledGridDiv>
-        <StyledKnob src="../../assets/knob.svg" />
-        <StyledKnobBed src="../../assets/knob-bed.svg" />
-      </StyledGridDiv>
+    <div>
+      <StyledBasicKnobWrapper>
+        <StyledKnobGhost
+          src="../../assets/ghost-blur.svg"
+          draggable="false"
+          id="knob-ghost"
+        />
+        <StyledKnobBed src="../../assets/knob-bed.svg" draggable="false" />
+      </StyledBasicKnobWrapper>
       <StyledKnobLabel>{label}</StyledKnobLabel>
-    </StyledBasicKnobWrapper>
+    </div>
   );
 };
