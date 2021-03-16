@@ -15,7 +15,7 @@ const StyledCF = styled.div`
   height: ${topMenuLineHeight}rem;
 
   &:active {
-    box-shadow: 0 0 7.5px #43D9D9;
+    box-shadow: 0 0 7.5px #43d9d9;
   }
 `;
 
@@ -34,28 +34,49 @@ const StyledSelectionDirectionalButton = styled.img`
   transition: opacity 0.25s ease-in-out;
 `;
 
-const StyledSelectionDirectionalButtonTop = styled(StyledSelectionDirectionalButton)`
+const StyledSelectionDirectionalButtonTop = styled(
+  StyledSelectionDirectionalButton
+)`
   &:hover {
     opacity: 0;
   }
 `;
 
-export const SelectionDirectionalButton = ({ direction }) => {
-  return direction === "previous" ? 
-  (
+export const SelectionDirectionalButton = ({ direction, special = "" }) => {
+  const specials = {
+    pure: "-pure",
+  };
+
+  const checkSpecial = () => {
+    if (special === "") return "";
+    return specials[special];
+  };
+
+  return direction === "previous" ? (
     <StyledCFWithMargin>
-      <StyledSelectionDirectionalButton src={`../../assets/${direction}-button-hover.svg`} />
-      <StyledSelectionDirectionalButtonTop src={`../../assets/${direction}-button.svg`} />
+      <StyledSelectionDirectionalButton
+        src={`../../assets/${direction}-button${checkSpecial()}-hover.svg`}
+      />
+      <StyledSelectionDirectionalButtonTop
+        src={`../../assets/${direction}-button${checkSpecial()}.svg`}
+      />
     </StyledCFWithMargin>
-  ) :
-  (
+  ) : (
     <StyledCF>
-      <StyledSelectionDirectionalButton src={`../../assets/${direction}-button-hover.svg`} />
-      <StyledSelectionDirectionalButtonTop src={`../../assets/${direction}-button.svg`} />
+      <StyledSelectionDirectionalButton
+        src={`../../assets/${direction}-button${checkSpecial()}-hover.svg`}
+      />
+      <StyledSelectionDirectionalButtonTop
+        src={`../../assets/${direction}-button${checkSpecial()}.svg`}
+      />
     </StyledCF>
-  )
-}
+  );
+};
 
 export const SelectionDirectionalButtonGroup = (props) => {
-  return <StyledSelectionDirectionalButtonGroup>{props.children}</StyledSelectionDirectionalButtonGroup>
-}
+  return (
+    <StyledSelectionDirectionalButtonGroup>
+      {props.children}
+    </StyledSelectionDirectionalButtonGroup>
+  );
+};
