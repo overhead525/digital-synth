@@ -1,6 +1,4 @@
 import { useEffect } from "preact/hooks";
-import subjx from "subjx";
-import "subjx/dist/style/subjx.css";
 import styled from "styled-components";
 
 const StyledBasicKnobWrapper = styled.div`
@@ -46,20 +44,13 @@ const StyledKnobBed = styled.img`
 `;
 
 export const BasicKnob = ({ label = "Label" }) => {
-  useEffect(() => {
-    const knobGhost = document.getElementById("knob-ghost");
-    const SJknobGhost = subjx("#knob-ghost");
-  });
+  useEffect(() => {});
 
   return (
     <div>
       <StyledBasicKnobWrapper>
-        <StyledKnobGhost
-          src="../../assets/ghost-blur.svg"
-          draggable="false"
-          id="knob-ghost"
-        />
-        <StyledKnobBed src="../../assets/knob-bed.svg" draggable="false" />
+        <StyledKnobGhost src="../../assets/ghost-blur.svg" draggable="false" />
+        <StyledKnobBed src="../../assets/knob-bed.svg" id="knob" />
       </StyledBasicKnobWrapper>
       <StyledKnobLabel>{label}</StyledKnobLabel>
     </div>
