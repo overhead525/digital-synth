@@ -27,7 +27,6 @@
     "preact": "^10.1.0",
     "preact-render-to-string": "^5.1.2",
     "react-redux": "^7.2.2",
-    "styled-components": "^5.2.1",
-    "subjx": "^0.3.6"
+    "styled-components": "^5.2.1"
   }
 }
