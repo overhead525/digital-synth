@@ -36,12 +36,6 @@ const StyledKnobBed = styled.img`
 `;
 
 export const BasicKnob = ({ label = "Label" }) => {
-  const knob = document
-    .getElementById("knob-ghost")
-    .addEventListener("drag", (e) => {
-      e.preventDefault();
-    });
-
   return (
     <div>
       <StyledBasicKnobWrapper>
