@@ -43,7 +43,7 @@ const StyledKnobBed = styled.img`
   user-select: none;
 `;
 
-export const BasicKnob = ({ label = "Label" }) => {
+export const BasicKnob = ({ label = "Label", onUpdateFunction = () => {} }) => {
   const [angle, setAngle] = useState(0);
 
   const updateAngle = (e) => {
