@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { cycleSoundChoice } from "../../features/soundSelection/soundSelectionSlice";
-import { useDispatch } from "react-redux";
 import { topMenuLineHeight } from "../SynthGUI/TopMenu/_constants";
 
 const StyledSelectionDirectionalButtonGroup = styled.div`
@@ -48,8 +46,6 @@ export const SelectionDirectionalButton = ({
   special = "",
   updateFunction,
 }) => {
-  const dispatch = useDispatch();
-
   const specials = {
     pure: "-pure",
   };
