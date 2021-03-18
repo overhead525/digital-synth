@@ -4,6 +4,10 @@ import { OscillatorControls } from "./OscillatorControls";
 import { EffectControls } from "./EffectControls";
 import { BottomPianoRoll } from "./BottomPianoRoll";
 import { useSelector } from "react-redux";
+import {
+  soundOptionsSelector,
+  soundSelectionSelector,
+} from "../../features/soundSelection/soundSelectionSlice";
 
 const StyledSynthGUI = styled.main`
   display: grid;
@@ -17,10 +21,7 @@ const StyledSynthGUI = styled.main`
 `;
 
 const SynthGUI = () => {
-  const soundSelection = useSelector(
-    // @ts-ignore
-    (state) => state.soundSelection.currentSoundChoice
-  );
+  const soundSelection = useSelector(soundSelectionSelector);
 
   return (
     <StyledSynthGUI className="guiWrapper">

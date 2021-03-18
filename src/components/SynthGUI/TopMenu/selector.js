@@ -1,10 +1,15 @@
 import { useState } from "preact/hooks";
 import styled from "styled-components";
-import { changeSoundChoice } from "../../../features/soundSelection/soundSelectionSlice";
+import {
+  changeSoundChoice,
+  soundOptionsSelector,
+  soundSelectionSelector,
+} from "../../../features/soundSelection/soundSelectionSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const StyledSelectorContainer = styled.div`
   margin-left: 0.5rem;
+  cursor: pointer;
 `;
 
 const StyledSelectorHeader = styled.div`
@@ -38,10 +43,7 @@ const StyledSelectorListComponent = styled.div`
 
 export const Selector = ({ text }) => {
   const [isListOpen, setIsListOpen] = useState(false);
-  const soundChoices = useSelector(
-    // @ts-ignore
-    (state) => state.soundSelection.soundChoices
-  );
+  const soundChoices = useSelector(soundOptionsSelector);
   const dispatch = useDispatch();
 
   if (isListOpen)
