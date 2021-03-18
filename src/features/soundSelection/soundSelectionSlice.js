@@ -5,37 +5,25 @@ export const soundSelectionSlice = createSlice({
   initialState: {
     soundChoices: ["Vox Humana", "PPG Choir", "E. Piano 1", "Lately Bass"],
     currentSoundChoice: "Vox Humana",
+    count: 0,
   },
   reducers: {
     changeSoundChoice: (state, action) => {
       state.currentSoundChoice = action.payload;
+      state.count = state.soundChoices.indexOf(state.currentSoundChoice);
     },
     cycleSoundChoice: (state, action) => {
       const direction = action.payload;
-      if (direction === "next") {
-        /*
-        // if not at the end
-        if (currentIndex < state.soundChoices.length - 1) {
-          state.currentSoundChoice = state.soundChoices[currentIndex + 1];
-        } else {
-          state.currentSoundChoice = state.soundChoices[0];
-        }
-        */
-      } else if (direction === "previous") {
-        /*
-        // if not at the beginning
-        if (!(currentIndex === 0)) {
-          state.currentSoundChoice = state.soundChoices[currentIndex - 1];
-        } else {
-          state.currentSoundChoice =
-            state.soundChoices[state.soundChoices.length - 1];
-        }
-        */
+      if (direction === "next" && state.count < state.soundChoices.length - 1) {
+        state.count += 1;
+      } else if (direction === "previous" && state.count > 0) {
+        state.count -= 1;
       }
-      console.log(state.currentSoundChoice);
+      state.currentSoundChoice = state.soundChoices[state.count];
     },
     resetSoundChoice: (state) => {
-      state.currentSoundChoice = "Vox Humana";
+      state.currentSoundChoice = state.soundChoices[0];
+      state.count = 0;
     },
   },
 });

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-
+import { cycleSoundChoice } from "../../features/soundSelection/soundSelectionSlice";
+import { useDispatch } from "react-redux";
 import { topMenuLineHeight } from "../SynthGUI/TopMenu/_constants";
 
 const StyledSelectionDirectionalButtonGroup = styled.div`
@@ -43,6 +44,8 @@ const StyledSelectionDirectionalButtonTop = styled(
 `;
 
 export const SelectionDirectionalButton = ({ direction, special = "" }) => {
+  const dispatch = useDispatch();
+
   const specials = {
     pure: "-pure",
   };
@@ -52,8 +55,12 @@ export const SelectionDirectionalButton = ({ direction, special = "" }) => {
     return specials[special];
   };
 
+  const updateSound = (direction) => {
+    dispatch(cycleSoundChoice(direction));
+  };
+
   return direction === "previous" ? (
-    <StyledCFWithMargin>
+    <StyledCFWithMargin onClick={() => updateSound("previous")}>
       <StyledSelectionDirectionalButton
         src={`../../assets/${direction}-button${checkSpecial()}-hover.svg`}
       />
@@ -62,7 +69,7 @@ export const SelectionDirectionalButton = ({ direction, special = "" }) => {
       />
     </StyledCFWithMargin>
   ) : (
-    <StyledCF>
+    <StyledCF onClick={() => updateSound("next")}>
       <StyledSelectionDirectionalButton
         src={`../../assets/${direction}-button${checkSpecial()}-hover.svg`}
       />
