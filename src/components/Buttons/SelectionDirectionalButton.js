@@ -43,7 +43,11 @@ const StyledSelectionDirectionalButtonTop = styled(
   }
 `;
 
-export const SelectionDirectionalButton = ({ direction, special = "" }) => {
+export const SelectionDirectionalButton = ({
+  direction,
+  special = "",
+  updateFunction,
+}) => {
   const dispatch = useDispatch();
 
   const specials = {
@@ -55,12 +59,8 @@ export const SelectionDirectionalButton = ({ direction, special = "" }) => {
     return specials[special];
   };
 
-  const updateSound = (direction) => {
-    dispatch(cycleSoundChoice(direction));
-  };
-
   return direction === "previous" ? (
-    <StyledCFWithMargin onClick={() => updateSound("previous")}>
+    <StyledCFWithMargin onClick={() => updateFunction("previous")}>
       <StyledSelectionDirectionalButton
         src={`../../assets/${direction}-button${checkSpecial()}-hover.svg`}
       />
@@ -69,7 +69,7 @@ export const SelectionDirectionalButton = ({ direction, special = "" }) => {
       />
     </StyledCFWithMargin>
   ) : (
-    <StyledCF onClick={() => updateSound("next")}>
+    <StyledCF onClick={() => updateFunction("next")}>
       <StyledSelectionDirectionalButton
         src={`../../assets/${direction}-button${checkSpecial()}-hover.svg`}
       />
