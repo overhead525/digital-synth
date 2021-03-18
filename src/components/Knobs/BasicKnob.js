@@ -43,6 +43,15 @@ const StyledKnobBed = styled.img`
   user-select: none;
 `;
 
+const StyledKnobBG = styled.img`
+  position: absolute;
+  width: 90%;
+  z-index: 5;
+
+  user-drag: none;
+  user-select: none;
+`;
+
 export const BasicKnob = ({ label = "Label", onUpdateFunction = () => {} }) => {
   const [angle, setAngle] = useState(0);
 
@@ -54,8 +63,8 @@ export const BasicKnob = ({ label = "Label", onUpdateFunction = () => {} }) => {
       (knobRect.top + knobRect.bottom) / 2,
     ];
     if (e.pageY < center[1]) {
-      if (angle < 330) setAngle(angle + 30);
-      else setAngle(0);
+      if (angle < 300) setAngle(angle + 30);
+      else setAngle(300);
     } else if (e.pageY > center[1]) {
       if (angle > 30) setAngle(angle - 30);
       else setAngle(0);
@@ -70,6 +79,7 @@ export const BasicKnob = ({ label = "Label", onUpdateFunction = () => {} }) => {
           src="../../assets/knob-bed.svg"
           style={{ transform: `rotate(${angle}deg)` }}
         />
+        <StyledKnobBG src="../../assets/knob-bed-bg.svg" />
       </StyledBasicKnobWrapper>
       <StyledKnobLabel>{label}</StyledKnobLabel>
     </div>
