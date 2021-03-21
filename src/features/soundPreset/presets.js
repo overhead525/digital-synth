@@ -7,7 +7,7 @@ export const VoxHumana = {
       1: {
         waveform: OscWaveform.SINE,
         knobs: {
-          frequency: 440,
+          frequency: null,
           keyTracking: 0.9,
           damping: 0.3,
         },
@@ -19,7 +19,7 @@ export const VoxHumana = {
       2: {
         waveform: OscWaveform.SAWTOOTH,
         knobs: {
-          frequency: 262,
+          frequency: -9,
           pulseWidth: 0.7,
           damping: 0.3,
         },
@@ -84,7 +84,7 @@ export const PPGChoir = {
       1: {
         waveform: OscWaveform.SINE,
         knobs: {
-          frequency: 440,
+          frequency: null,
           keyTracking: 0.9,
           damping: 0.3,
         },
@@ -96,7 +96,7 @@ export const PPGChoir = {
       2: {
         waveform: OscWaveform.SAWTOOTH,
         knobs: {
-          frequency: 262,
+          frequency: -9,
           pulseWidth: 0.7,
           damping: 0.3,
         },
@@ -161,7 +161,7 @@ export const EPiano1 = {
       1: {
         waveform: OscWaveform.SINE,
         knobs: {
-          frequency: 440,
+          frequency: null,
           keyTracking: 0.9,
           damping: 0.3,
         },
@@ -173,7 +173,7 @@ export const EPiano1 = {
       2: {
         waveform: OscWaveform.SAWTOOTH,
         knobs: {
-          frequency: 262,
+          frequency: -9,
           pulseWidth: 0.7,
           damping: 0.3,
         },
@@ -238,7 +238,7 @@ export const LatelyBass = {
       1: {
         waveform: OscWaveform.SINE,
         knobs: {
-          frequency: 440,
+          frequency: null,
           keyTracking: 0.9,
           damping: 0.3,
         },
@@ -250,7 +250,7 @@ export const LatelyBass = {
       2: {
         waveform: OscWaveform.SAWTOOTH,
         knobs: {
-          frequency: 262,
+          frequency: -9,
           pulseWidth: 0.7,
           damping: 0.3,
         },
