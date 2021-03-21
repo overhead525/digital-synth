@@ -1,8 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { VoxHumana } from "./presets";
+import { EPiano1, LatelyBass, PPGChoir, VoxHumana } from "./presets";
 
 const presets = {
-  VoxHumana,
+  "Vox Humana": VoxHumana,
+  "PPG Choir": PPGChoir,
+  "E. Piano 1": EPiano1,
+  "Lately Bass": LatelyBass,
 };
 
 export const soundPresetSlice = createSlice({
@@ -17,3 +20,7 @@ export const soundPresetSlice = createSlice({
     },
   },
 });
+
+export const { changeSoundPreset, resetSoundPreset } = soundPresetSlice.actions;
+
+export const soundPresetReducer = soundPresetSlice.reducer;
