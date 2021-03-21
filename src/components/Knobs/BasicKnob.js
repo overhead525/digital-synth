@@ -16,7 +16,7 @@ const StyledBasicKnobWrapper = styled.div`
 const StyledKnobLabel = styled.div`
   width: 100%;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 600;
 
   user-drag: none;
@@ -52,8 +52,13 @@ const StyledKnobBG = styled.img`
   user-select: none;
 `;
 
-export const BasicKnob = ({ label = "Label", onUpdateFunction = () => {} }) => {
-  const [angle, setAngle] = useState(0);
+export const BasicKnob = ({
+  label = "Label",
+  onUpdateFunction = () => {},
+  initialAngle = 0,
+  stepSize = 30,
+}) => {
+  const [angle, setAngle] = useState(initialAngle);
 
   const updateAngle = (e) => {
     const knob = document.getElementById("knob");
@@ -63,10 +68,10 @@ export const BasicKnob = ({ label = "Label", onUpdateFunction = () => {} }) => {
       (knobRect.top + knobRect.bottom) / 2,
     ];
     if (e.pageY < center[1]) {
-      if (angle < 300) setAngle(angle + 30);
+      if (angle < 300) setAngle(angle + stepSize);
       else setAngle(300);
     } else if (e.pageY > center[1]) {
-      if (angle > 30) setAngle(angle - 30);
+      if (angle > stepSize) setAngle(angle - stepSize);
       else setAngle(0);
     }
   };
