@@ -7,8 +7,7 @@
     "build": "preact build",
     "serve": "sirv build --port 8080 --cors --single",
     "dev": "preact watch",
-    "lint": "eslint src",
-    "build-tsc": "tsc ./src/features/soundPreset/*.ts ./src/features/soundPreset/presets/*.ts"
+    "lint": "eslint src"
   },
   "eslintConfig": {
     "extends": "preact"
