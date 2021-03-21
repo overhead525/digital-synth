@@ -23,4 +23,6 @@ export const soundPresetSlice = createSlice({
 
 export const { changeSoundPreset, resetSoundPreset } = soundPresetSlice.actions;
 
+export const soundPresetSelector = (state) => state.soundPreset;
+
 export const soundPresetReducer = soundPresetSlice.reducer;
