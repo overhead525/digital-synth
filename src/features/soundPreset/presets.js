@@ -1,9 +1,11 @@
-export const soundPresetInitialState = {
+import { OscWaveform, FilterType } from "./constants.js";
+
+export const VoxHumana = {
   presetName: "Vox Humana",
   settings: {
     oscillators: {
       1: {
-        waveform: Preset_1.OscWaveform.SINE,
+        waveform: OscWaveform.SINE,
         knobs: {
           frequency: 440,
           keyTracking: 0.9,
@@ -15,7 +17,7 @@ export const soundPresetInitialState = {
         },
       },
       2: {
-        waveform: Preset_1.OscWaveform.SAWTOOTH,
+        waveform: OscWaveform.SAWTOOTH,
         knobs: {
           frequency: 262,
           pulseWidth: 0.7,
@@ -51,7 +53,7 @@ export const soundPresetInitialState = {
     },
     filter: {
       cutoff: 70,
-      filterType: Preset_1.FilterType.LOWPASSFILTER,
+      filterType: FilterType.LOWPASSFILTER,
       resonance: 20,
       drive: 40,
     },
