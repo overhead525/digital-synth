@@ -44,7 +44,7 @@ const StyledSelectionDirectionalButtonTop = styled(
 export const SelectionDirectionalButton = ({
   direction,
   special = "",
-  updateFunction,
+  updateFunction = () => {},
 }) => {
   const specials = {
     pure: "-pure",
