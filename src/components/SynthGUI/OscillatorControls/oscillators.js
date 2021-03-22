@@ -14,9 +14,6 @@ const StyledOscillatorWrapper = styled.div`
 `;
 
 const StyledOscillatorRow = styled.div`
-  background-color: white;
-  border: 1px solid blue;
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   place-items: center;
@@ -76,6 +73,7 @@ export const Oscillators = () => {
       </StyledOscillatorRow>
       <StyledOscillatorRow>
         <StyledLabel>Tuning</StyledLabel>
+        <TuningControl />
       </StyledOscillatorRow>
       <StyledOscillatorRow>
         <StyledTitle>OSC2</StyledTitle>
