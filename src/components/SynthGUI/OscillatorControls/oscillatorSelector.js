@@ -19,7 +19,10 @@ const StyledText = styled.p`
   line-height: 20%;
 `;
 
-export const OscillatorSelector = ({ oscillator = "sine" }) => {
+export const OscillatorSelector = (
+  { oscillator = "sine" },
+  onUpdateFunction = () => {}
+) => {
   return (
     <StyledOscillatorSelector>
       <SelectionDirectionalButton direction="previous" special="pure" />

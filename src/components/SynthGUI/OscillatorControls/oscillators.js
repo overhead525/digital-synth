@@ -72,8 +72,11 @@ export const Oscillators = () => {
       <StyledOscillatorRow></StyledOscillatorRow>
       <StyledOscillatorRow>
         <StyledTitle>OSC2</StyledTitle>
+        <OscillatorSelector />
       </StyledOscillatorRow>
-      <StyledOscillatorRow></StyledOscillatorRow>
+      <StyledOscillatorRow>
+        {renderKnobs(soundPreset.settings.oscillators["2"].knobs)}
+      </StyledOscillatorRow>
       <StyledOscillatorRow></StyledOscillatorRow>
     </StyledOscillatorWrapper>
   );
