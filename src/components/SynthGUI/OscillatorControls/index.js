@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Mixer } from "./mixer";
 import { Oscillators } from "./oscillators";
 
 const StyledOscillatorControls = styled.section`
@@ -37,9 +38,9 @@ export const OscillatorControls = () => {
           <Oscillators />
         </StyledContentColumn>
         <div style={{ backgroundColor: "black" }}></div>
-        <StyledContentColumn
-          style={{ backgroundColor: "red" }}
-        ></StyledContentColumn>
+        <StyledContentColumn style={{ backgroundColor: "red" }}>
+          <Mixer />
+        </StyledContentColumn>
         <div></div>
         <div style={{ backgroundColor: "green" }}></div>
         <div></div>
