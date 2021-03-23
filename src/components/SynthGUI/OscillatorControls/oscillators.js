@@ -3,25 +3,15 @@ import { BasicKnob } from "../../Knobs/BasicKnob";
 import { OscillatorSelector } from "./oscillatorSelector";
 import { soundPresetSelector } from "../../../features/soundPreset/soundPresetSlice";
 import { useSelector } from "react-redux";
-import { convert2Frequency } from "./_constant";
 import { TuningControl } from "./tuningControl";
+import { StyledTitle } from "../../Displays/Text";
+import { StyledRow } from "../../Layout";
 
 const StyledOscillatorWrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr 2fr 1fr 1fr 2fr 1fr;
 
   height: 100%;
-`;
-
-const StyledOscillatorRow = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  place-items: center;
-`;
-
-const StyledTitle = styled.div`
-  letter-spacing: 3px;
-  font-weight: 600;
 `;
 
 const StyledLabel = styled.div`
@@ -64,28 +54,28 @@ export const Oscillators = () => {
 
   return (
     <StyledOscillatorWrapper>
-      <StyledOscillatorRow>
+      <StyledRow>
         <StyledTitle>OSC1</StyledTitle>
         <OscillatorSelector />
-      </StyledOscillatorRow>
-      <StyledOscillatorRow>
+      </StyledRow>
+      <StyledRow>
         {renderKnobs(soundPreset.settings.oscillators["1"].knobs)}
-      </StyledOscillatorRow>
-      <StyledOscillatorRow>
+      </StyledRow>
+      <StyledRow>
         <StyledLabel>Tuning</StyledLabel>
         <TuningControl />
-      </StyledOscillatorRow>
-      <StyledOscillatorRow>
+      </StyledRow>
+      <StyledRow>
         <StyledTitle>OSC2</StyledTitle>
         <OscillatorSelector />
-      </StyledOscillatorRow>
-      <StyledOscillatorRow>
+      </StyledRow>
+      <StyledRow>
         {renderKnobs(soundPreset.settings.oscillators["2"].knobs)}
-      </StyledOscillatorRow>
-      <StyledOscillatorRow>
+      </StyledRow>
+      <StyledRow>
         <StyledLabel>Tuning</StyledLabel>
         <TuningControl />
-      </StyledOscillatorRow>
+      </StyledRow>
     </StyledOscillatorWrapper>
   );
 };
