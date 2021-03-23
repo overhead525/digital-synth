@@ -11,7 +11,7 @@ import {
 
 const StyledSynthGUI = styled.main`
   display: grid;
-  grid-template-rows: 1fr 5fr 4fr 1.25fr;
+  grid-template-rows: 1fr 5.5fr 3.7fr 1.25fr;
 
   position: absolute;
   top: 0;
