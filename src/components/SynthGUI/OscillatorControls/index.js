@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Mixer } from "./mixer";
 import { Oscillators } from "./oscillators";
+import { Visualizer } from "./Visualizer";
 
 const StyledOscillatorControls = styled.section`
   background: linear-gradient(
@@ -42,7 +43,9 @@ export const OscillatorControls = () => {
           <Mixer />
         </StyledContentColumn>
         <div></div>
-        <div style={{ backgroundColor: "green" }}></div>
+        <StyledContentColumn style={{ border: "1px solid green" }}>
+          <Visualizer />
+        </StyledContentColumn>
         <div></div>
         <StyledContentColumn
           style={{ backgroundColor: "purple" }}
