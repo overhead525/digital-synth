@@ -23,7 +23,7 @@ export const Visualizer = () => {
   };
 
   useEffect(() => {
-    setShift(shift + 1);
+    setTimeout(() => setShift(shift + 1), 300);
     renderChart();
   });
 

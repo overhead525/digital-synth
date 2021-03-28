@@ -1,12 +1,12 @@
 import { Chart } from "chart.js";
-import * as _ from "lodash";
+import { range } from "lodash";
 
 const generateXValues = (xMin = 0, xMax = 50, xStep = 0.2) => {
-  return _.range(xMin, xMax, xStep);
+  return range(xMin, xMax, xStep);
 };
 
-const generateYValues = (xVals = generateXValues(), shift = 0) => {
-  return xVals.map((x) => Math.sin(x + (Math.PI / 48) * shift));
+const generateYValues = (xVals = generateXValues(), shift = 0, raise = 0) => {
+  return xVals.map((x) => Math.sin(x + (Math.PI / 48) * shift) + raise);
 };
 
 const defaultOptions = {
@@ -16,6 +16,10 @@ const defaultOptions = {
   shift: 0,
 };
 
+/* ================================================= */
+
+/* =============================================== */
+
 export const buildVisualizer = (ctx, options = defaultOptions) => {
   return new Chart(ctx, {
     type: "line",
@@ -23,8 +27,15 @@ export const buildVisualizer = (ctx, options = defaultOptions) => {
       labels: generateXValues().map((val) => val.toString()),
       datasets: [
         {
-          label: "My First Dataset",
-          data: generateYValues(generateXValues(), options.shift),
+          label: "Oscillator 1",
+          data: generateYValues(generateXValues(), options.shift, -2),
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          lineTension: 0.1,
+        },
+        {
+          label: "Oscillator 2",
+          data: generateYValues(generateXValues(), options.shift, 2),
           fill: false,
           borderColor: "rgb(75, 192, 192)",
           lineTension: 0.1,
@@ -44,6 +55,14 @@ export const buildVisualizer = (ctx, options = defaultOptions) => {
         xAxes: [
           {
             display: false,
+          },
+        ],
+        yAxes: [
+          {
+            ticks: {
+              suggestedMax: 4,
+              suggestedMin: -4,
+            },
           },
         ],
       },
