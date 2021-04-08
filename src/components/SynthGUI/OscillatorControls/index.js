@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Mixer } from "./mixer";
 import { Oscillators } from "./oscillators";
-import { Visualizer } from "./Visualizer";
+import { Visualizer } from "./visualizer";
 
 const StyledOscillatorControls = styled.section`
   background: linear-gradient(
