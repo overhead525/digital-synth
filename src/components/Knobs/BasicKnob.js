@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import styled from "styled-components";
 
 const StyledBasicKnobWrapper = styled.div`
@@ -56,34 +56,36 @@ export const BasicKnob = ({
   label = "Label",
   onUpdateFunction = () => {},
   initialAngle = 0,
-  stepSize = 30,
 }) => {
+  const rotationTarget = useRef(null);
+
   const [angle, setAngle] = useState(initialAngle);
 
   const updateAngle = (e) => {
-    const knob = document.getElementById("knob");
-    const knobRect = knob.getBoundingClientRect();
-    const center = [
-      (knobRect.left + knobRect.right) / 2,
-      (knobRect.top + knobRect.bottom) / 2,
-    ];
-    if (e.pageY < center[1]) {
-      if (angle < 300) setAngle(angle + stepSize);
-      else setAngle(300);
-    } else if (e.pageY > center[1]) {
-      if (angle > stepSize) setAngle(angle - stepSize);
-      else setAngle(0);
-    }
+    e.preventDefault();
+
+    const eventOptions = {
+      wheel: () => {
+        if (angle + e.deltaY <= 300 && angle + e.deltaY >= 0) {
+          setAngle(angle + e.deltaY);
+          rotationTarget.current.style.transform = `rotate(${angle}deg)`;
+        }
+      },
+    };
+
+    eventOptions[e.nativeEvent.type]();
   };
 
   return (
     <div>
-      <StyledBasicKnobWrapper id="knob" onClick={(e) => updateAngle(e)}>
+      <StyledBasicKnobWrapper
+        id="knob"
+        onWheel={(e) => {
+          updateAngle(e);
+        }}
+      >
         <StyledKnobGhost src="../../assets/ghost-blur.svg" />
-        <StyledKnobBed
-          src="../../assets/knob-bed.svg"
-          style={{ transform: `rotate(${angle}deg)` }}
-        />
+        <StyledKnobBed ref={rotationTarget} src="../../assets/knob-bed.svg" />
         <StyledKnobBG src="../../assets/knob-bed-bg.svg" />
       </StyledBasicKnobWrapper>
       <StyledKnobLabel>{label}</StyledKnobLabel>
