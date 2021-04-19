@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { useRef } from "preact/hooks";
 
 const StyledMixerChannelControlWrapper = styled.div`
   grid-column: span 1;
@@ -56,11 +58,13 @@ const StyledSliderSlideWrapper = styled.div`
   height: auto;
 `;
 
-const StyledSliderSlide = styled.img`
+const StyledSliderSlide = styled(motion.img)`
   height: 2rem;
 `;
 
 export const MixerChannelControl = () => {
+  const dragConstraintElement = useRef(null);
+
   return (
     <StyledMixerChannelControlWrapper>
       <StyledXButton src="../../../assets/x-button.svg" />
@@ -68,10 +72,17 @@ export const MixerChannelControl = () => {
         <StyledKnobBed src="../../../assets/knob-bed.svg" />
         <StyledKnob src="../../../assets/vertical-knob.svg" />
       </StyledKnobWrapper>
-      <StyledSliderWrapper>
+      <StyledSliderWrapper ref={dragConstraintElement}>
         <StyledSliderBar />
         <StyledSliderSlideWrapper>
-          <StyledSliderSlide src="../../../assets/slider-off.svg" />
+          <StyledSliderSlide
+            src="../../../assets/slider-off.svg"
+            drag="y"
+            dragConstraints={{ top: -60, bottom: 60 }}
+            dragElastic={false}
+            dragMomentum={false}
+            onClick={() => console.log("clicked image")}
+          />
         </StyledSliderSlideWrapper>
       </StyledSliderWrapper>
     </StyledMixerChannelControlWrapper>
