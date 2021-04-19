@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import VisualizerChart from "../../../components/Visualizer";
 import {
   xGeneratorSelector,
   yGeneratorSelector,
@@ -17,9 +16,5 @@ export const Visualizer = () => {
   const xGenerator = useSelector(xGeneratorSelector);
   const yGenerator = useSelector(yGeneratorSelector);
 
-  return (
-    <StyledVisualizer>
-      <VisualizerChart xGenerator={xGenerator} yGenerator={yGenerator} />
-    </StyledVisualizer>
-  );
+  return <StyledVisualizer></StyledVisualizer>;
 };
